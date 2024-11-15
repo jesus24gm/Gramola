@@ -24,7 +24,7 @@ public class Album_Ad extends RecyclerView.Adapter<Album_Ad.AdAlbumHolder> {
     @NonNull
     @Override
     public AdAlbumHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v1= LayoutInflater.from(parent.getContext()).inflate(R.layout.albumcard,parent,false);
+        View v1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.albumcard, parent, false);
         return new AdAlbumHolder(v1);
     }
 
@@ -35,6 +35,16 @@ public class Album_Ad extends RecyclerView.Adapter<Album_Ad.AdAlbumHolder> {
         holder.tvArtist.setText(al.getArtista());
         holder.tvAnnio.setText(String.valueOf(al.getAño()));
         holder.portada.setImageResource(al.getIdImg());
+
+        View.OnLongClickListener longClickListener = new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                holder.itemView.showContextMenu();
+                return true;
+            }
+        };
+        holder.itemView.setOnLongClickListener(longClickListener);
+
     }
 
     @Override
