@@ -3,13 +3,15 @@ package com.example.gramola.Modelos;
 import java.util.Objects;
 
 public class Album {
+    private int idAlb;
     private String nombre;
     private String artista;
     private int año;
     private String descripcion;
     private int idImg;
 
-    public Album(String nombre, String artista, int año, String descripcion, int idImg) {
+    public Album(int idAlb,String nombre, String artista, int año, String descripcion, int idImg) {
+        this.idAlb=idAlb;
         this.nombre = nombre;
         this.artista = artista;
         this.año = año;
@@ -18,6 +20,14 @@ public class Album {
     }
 
     public Album() {
+    }
+
+    public int getIdAlb() {
+        return idAlb;
+    }
+
+    public void setIdAlb(int idAlb) {
+        this.idAlb = idAlb;
     }
 
     public String getNombre() {
@@ -64,13 +74,13 @@ public class Album {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Album)) return false;
-        Album abum = (Album) o;
-        return año == abum.año && Objects.equals(nombre, abum.nombre) && Objects.equals(artista, abum.artista);
+        Album album = (Album) o;
+        return idAlb == album.idAlb;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre, artista, año);
+        return Objects.hashCode(idAlb);
     }
 
     @Override

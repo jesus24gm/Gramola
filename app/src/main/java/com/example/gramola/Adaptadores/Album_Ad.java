@@ -1,5 +1,6 @@
 package com.example.gramola.Adaptadores;
 
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,14 @@ import java.util.ArrayList;
 
 public class Album_Ad extends RecyclerView.Adapter<Album_Ad.AdAlbumHolder> {
     private ArrayList<Album> albAl;
+    private OnAlbumLongClickListener longClickListener;
 
     public Album_Ad(ArrayList<Album> albAl) {
         this.albAl = albAl;
+    }
+
+    public void setOnAlbumLongClickListener(OnAlbumLongClickListener listener) {
+        this.longClickListener = listener;
     }
 
     @NonNull
@@ -30,27 +36,33 @@ public class Album_Ad extends RecyclerView.Adapter<Album_Ad.AdAlbumHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull AdAlbumHolder holder, int position) {
-        Album al=albAl.get(position);
+        Album al = albAl.get(position);
         holder.tvAlbum.setText(al.getNombre());
         holder.tvArtist.setText(al.getArtista());
         holder.tvAnnio.setText(String.valueOf(al.getAño()));
         holder.portada.setImageResource(al.getIdImg());
 
-        View.OnLongClickListener longClickListener = new View.OnLongClickListener() {
+        //  evento de pulsación larga
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                holder.itemView.showContextMenu();
-                return true;
+                if (longClickListener != null) {
+                    int posAct = holder.getAdapterPosition(); // Obtener la posición actual
+                    if (posAct != RecyclerView.NO_POSITION) {
+                        longClickListener.onAlbumLongClick(al, posAct);
+                        return true;
+                    }
+                }
+                return false;
             }
-        };
-        holder.itemView.setOnLongClickListener(longClickListener);
-
+        });
     }
 
     @Override
     public int getItemCount() {
         return albAl.size();
     }
+
     public static class AdAlbumHolder extends RecyclerView.ViewHolder {
         TextView tvAlbum, tvArtist, tvAnnio;
         ImageView portada;
@@ -60,7 +72,11 @@ public class Album_Ad extends RecyclerView.Adapter<Album_Ad.AdAlbumHolder> {
             tvAlbum = itemView.findViewById(R.id.tvNom);
             tvArtist = itemView.findViewById(R.id.tvBanda);
             tvAnnio = itemView.findViewById(R.id.tvAnio);
-            portada=itemView.findViewById(R.id.ivPortada);
+            portada = itemView.findViewById(R.id.ivPortada);
         }
+    }
+
+    public interface OnAlbumLongClickListener {
+        void onAlbumLongClick(Album album, int position);
     }
 }
