@@ -6,15 +6,15 @@ public class Album {
     private int idAlb;
     private String nombre;
     private String artista;
-    private int año;
+    private int anio;
     private String descripcion;
     private int idImg;
 
-    public Album(int idAlb,String nombre, String artista, int año, String descripcion, int idImg) {
+    public Album(int idAlb,String nombre, String artista, int anio, String descripcion, int idImg) {
         this.idAlb=idAlb;
         this.nombre = nombre;
         this.artista = artista;
-        this.año = año;
+        this.anio = anio;
         this.descripcion = descripcion;
         this.idImg = idImg;
     }
@@ -38,8 +38,8 @@ public class Album {
         return artista;
     }
 
-    public int getAño() {
-        return año;
+    public int getAnio() {
+        return anio;
     }
 
     public String getDescripcion() {
@@ -58,8 +58,8 @@ public class Album {
         this.artista = artista;
     }
 
-    public void setAño(int año) {
-        this.año = año;
+    public void setAnio(int anio) {
+        this.anio = anio;
     }
 
     public void setDescripcion(String descripcion) {
@@ -88,7 +88,7 @@ public class Album {
         return "Abum{" +
                 "nombre='" + nombre + '\'' +
                 ", artista='" + artista + '\'' +
-                ", año=" + año +
+                ", año=" + anio +
                 ", descripcion='" + descripcion + '\'' +
                 '}';
     }

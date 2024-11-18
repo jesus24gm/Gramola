@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/gramolares"
+        android:icon="@mipmap/ic_lnchgramola"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/gramolares"
+        android:roundIcon="@mipmap/ic_lnchgramola_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Gramola"
         tools:targetApi="31">
@@ -29,6 +29,9 @@
             android:label="@string/app_name"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
 
+        </activity>
+        <activity
+            android:name="com.example.gramola.Controladores.Detalle">
         </activity>
     </application>
 

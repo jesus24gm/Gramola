@@ -26,6 +26,7 @@ public class Inicio extends AppCompatActivity {
 
         @Override
         protected void onCreate(@Nullable Bundle savedInstanceState) {
+
             super.onCreate(savedInstanceState);
             setContentView(R.layout.inicio);
             btnRegistro=(Button) findViewById(R.id.btnRegistro);
