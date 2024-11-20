@@ -54,8 +54,6 @@ public class Lista extends AppCompatActivity {
                     if (am != null) {
                         return; // Si ya hay un Action Mode activo, no hace nada
                     }
-
-                    // Guardar el álbum y la posición seleccionados
                     albSel = album;
                     selPosition = position;
                     am = startSupportActionMode(actionModeCallback);
