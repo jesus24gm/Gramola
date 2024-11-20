@@ -1,7 +1,5 @@
 package com.example.gramola.Controladores;
 
-import static android.os.Build.VERSION_CODES.R;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +20,7 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class Registro extends AppCompatActivity {
-    EditText etPassw;
+    EditText etMail;
     EditText etNom;
     Button btnRegistro;
     EditText etFecNac;
@@ -33,7 +31,7 @@ public class Registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(com.example.gramola.R.layout.registro);
 
-        etPassw=(EditText) findViewById(com.example.gramola.R.id.etPass);
+        etMail=(EditText) findViewById(com.example.gramola.R.id.etMail);
         etNom=(EditText) findViewById(com.example.gramola.R.id.etNom);
         btnRegistro=(Button)findViewById(com.example.gramola.R.id.btnLog);
         etFecNac=(EditText) findViewById(com.example.gramola.R.id.etFecNac);
@@ -48,25 +46,25 @@ public class Registro extends AppCompatActivity {
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String contr=etPassw.getText().toString();
+                String mail=etMail.getText().toString();
                 String fnacim=etFecNac.getText().toString();
-                if (passOk(contr)&&mayor18(fnacim)){
+                if (mailOk(mail)&&mayor18(fnacim)){
                     Toast.makeText(Registro.this, "Registro completado correctamente", Toast.LENGTH_LONG).show();
                     Intent in = new Intent(Registro.this,Inicio.class);
                     startActivity(in);
                 } else if (!mayor18(fnacim)){
                     Toast.makeText(Registro.this, "Debes ser mayor de 18 para registrarte", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(Registro.this, "Contraseña inválida. Debe tener al menos 8 caracteres, una mayúscula y un número o símbolo.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Registro.this, "Correo inválido. Debe tener un @, y acabar con un punto seguido de una extension.", Toast.LENGTH_LONG).show();
                 }
 
 
             }
         });
     }
-    private boolean passOk (String passw){
-        String pass="^(?=.*[A-Z])(?=.*[0-9!@#$%^&*()_+=-])(?=\\S+$).{8,}$";
-        return Pattern.matches(pass, passw);
+    private boolean mailOk(String email) {
+        String emailPattern = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
+        return Pattern.matches(emailPattern, email);
     }
     private boolean mayor18(String fnac){
         SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());

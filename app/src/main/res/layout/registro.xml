@@ -9,76 +9,83 @@
 
     <TextView
         android:id="@+id/tvBienv"
-        android:layout_width="294dp"
-        android:layout_height="46dp"
+        android:layout_width="301dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="29dp"
         android:background="#A6F2B60A"
         android:fontFamily="@font/discofont"
         android:paddingTop="3dp"
         android:text="Ingresa tus datos"
         android:textAlignment="center"
-        android:textSize="35sp"
+        android:textSize="40sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/etNom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etNom"
         android:layout_width="215dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="108dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="17dp"
         android:background="#C9F6F4F4"
         android:backgroundTint="#F6F2F2"
         android:contentDescription="Nombre"
         android:ems="10"
         android:hint="Nombre"
         android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/etMail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvBienv" />
 
-    <EditText
-        android:id="@+id/etPass"
-        android:layout_width="212dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="200dp"
-        android:background="#C9FFFFFF"
-        android:contentDescription="Contraseña"
-        android:ems="10"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etFecNac"
-        android:layout_width="292dp"
-        android:layout_height="47dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginBottom="410dp"
         android:background="#C9FFFFFF"
         android:focusable="false"
         android:hint="Fecha de Nacimiento"
-        app:layout_constraintBottom_toTopOf="@+id/btnLog"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etPass" />
+        app:layout_constraintTop_toBottomOf="@+id/etMail" />
 
+    <EditText
+        android:id="@+id/etMail"
+        android:layout_width="216dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="38dp"
+        android:background="#C9FFFFFF"
+        android:ems="10"
+        android:hint="Mail"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/etFecNac"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNom" />
 
     <Button
         android:id="@+id/btnLog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="172dp"
+        android:layout_marginTop="52dp"
         android:backgroundTint="#852135"
         android:text="Acceder"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etPass" />
+        app:layout_constraintTop_toBottomOf="@+id/etFecNac"
+        app:layout_constraintVertical_bias="0.038" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
