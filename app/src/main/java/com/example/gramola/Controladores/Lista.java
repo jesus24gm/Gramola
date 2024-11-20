@@ -69,6 +69,7 @@ public class Lista extends AppCompatActivity {
         @Override
         public boolean onCreateActionMode(androidx.appcompat.view.ActionMode mode, Menu menu) {
             getMenuInflater().inflate(R.menu.menuaccion, menu);
+
             return true;
         }
 
@@ -109,6 +110,8 @@ public class Lista extends AppCompatActivity {
         @Override
         public void onDestroyActionMode(androidx.appcompat.view.ActionMode mode) {
             am = null;
+            Toast.makeText(Lista.this, "Acción cancelada", Toast.LENGTH_SHORT).show();
+
         }
     };
 }
