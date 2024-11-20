@@ -86,12 +86,13 @@ public class Lista extends AppCompatActivity {
                 builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Utilidades.delAlbum(albSel);
-                        lsAlb.remove(selPosition);
-                        rv1.getAdapter().notifyItemRemoved(selPosition); // Notificar cambio al adaptador
-                        Toast.makeText(Lista.this, "Álbum eliminado", Toast.LENGTH_SHORT).show();
-                        mode.finish();
-                    }
+                        if (selPosition >= 0 && selPosition < lsAlb.size()) {
+                            lsAlb.remove(selPosition);
+                            rv1.getAdapter().notifyItemRemoved(selPosition);
+                            mode.finish();
+                        } else {
+                            Toast.makeText(Lista.this, "Error: posición inválida", Toast.LENGTH_SHORT).show();
+                        }}
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override

@@ -1,5 +1,6 @@
 package com.example.gramola.Modelos;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Album {
@@ -18,6 +19,10 @@ public class Album {
         this.descripcion = descripcion;
         this.idImg = idImg;
     }
+
+
+
+
 
     public Album() {
     }
@@ -69,6 +74,7 @@ public class Album {
     public void setIdImg(int idImg) {
         this.idImg = idImg;
     }
+
 
     @Override
     public boolean equals(Object o) {

@@ -69,7 +69,8 @@ public class Album_Ad extends RecyclerView.Adapter<Album_Ad.AdAlbumHolder> {
                 if (longClickListener != null) {
                     int posAct = holder.getAdapterPosition(); // Obtener la posición actual
                     if (posAct != RecyclerView.NO_POSITION) {
-                        longClickListener.onAlbumLongClick(al, posAct);
+                        longClickListener.onAlbumLongClick(albAl.get(posAct), posAct);
+
                         return true;
                     }
                 }

@@ -44,7 +44,22 @@ public class Detalle extends AppCompatActivity {
             alTit.setText(album.getNombre());
             alArt.setText(album.getArtista());
             alAnio.setText(String.valueOf(album.getAnio()));
-            alDes.setText(album.getDescripcion());
+
+            StringBuilder descripcionCompleta = new StringBuilder();
+            descripcionCompleta.append(album.getDescripcion());
+
+            // Añadir las canciones al texto de descripción
+            if (album.getCanciones() != null && !album.getCanciones().isEmpty()) {
+                descripcionCompleta.append("\n\nCanciones:\n");
+                for (String cancion : album.getCanciones()) {
+                    descripcionCompleta.append(" - ").append(cancion).append("\n");
+                }
+            } else {
+                descripcionCompleta.append("\n\nNo hay canciones disponibles.");
+            }
+
+            // Establecer el texto en el TextView
+            alDes.setText(descripcionCompleta.toString());
         }
     }
 
